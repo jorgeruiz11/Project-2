@@ -16,7 +16,7 @@ class Miner():
 
     # Método que dada la ruta absoluta de una canción intenta obtener sus
     # etiquetas. Si tiene las etiquetas, las regresa. En caso de no tenerlas
-    # 
+    # le asignará un valor predeterminado.
     def get_tags(self):
         for i in self.files:
             audio = ID3(i)
