@@ -6,6 +6,7 @@ class Miner():
 
     def __init__(self):
         self.files = []
+        self.songs = []
 
     def get_files(self):
         route = os.path.expanduser('~/Música')
@@ -22,39 +23,44 @@ class Miner():
             audio = ID3(i)
             rola = Rola()
 
-            try:
-                title = audio['TIT2']
-            except:
-                title = 'Unknown'
+            path_rola = rola.property_path(i)
 
-            try:
-                artist = audio['TPE1']
-            except:
-                artist = 'Unknown'
+            if 'TIT2' in audio:
+                title = rola.property_title(audio['TIT2'])
+            else:
+                title = rola.property_title('Unknown')
 
-            try:
-                album = audio['TALB']
-            except:
-                album = 'Unknown'
+            if 'TPE1' in audio:
+                artist = rola.property_artist(audio['TPE1'])
+            else:
+                artist = rola.property_artist('Unknown')
 
-            try:
-                year = audio['TDRC']
-            except:
-                year = 0
+            if 'TALB' in audio:
+                album = rola.property_albumname(audio['TALB'])
+            else:
+                album = rola.property_albumname('Unknown')
 
-            try:
-                genre = audio['TCON']
-            except:
-                genre = 'Unknown'
+            if 'TDRC' in audio:
+                year = rola.property_year(audio['TDRC'])
+            else:
+                year = rola.property_year(0)
 
-            try:
-                number = audio['TRCK']
-            except:
-                number = 0
+            if 'TCON' in audio:
+                genre = rola.property_genre(audio['TCON'])
+            else:
+                genre = rola.property_genre('Unknown')
 
-            rola.make_title(title)
-            rola.make_artist(artist)
-            rola.make_albumname(album)
-            rola.make_year(year)
-            rola.make_genre(genre)
-            rola.make_albumnumer(number)
+            if 'TRCK' in audio:
+                number = rola.property_albumnumer(audio['TRCK'])
+            else:
+                number = rola.property_albumnumer(0)
+
+            self.songs.append(rola)
+
+            print(rola.property_title(title))
+            print(rola.property_artist(artist))
+            print(rola.property_albumname(album))
+            print(rola.property_year(year))
+            print(rola.property_genre(genre))
+            print(rola.property_albumnumer(number))
+            print('-------------------------------')
