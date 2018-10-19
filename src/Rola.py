@@ -1,5 +1,5 @@
 # Clase para manejar correctamente los atributos de las rolas.
-class Rola():
+class Rola(object):
 
     def __init__(self):
         self.artist = ""
@@ -37,3 +37,24 @@ class Rola():
     def property_path(self, path):
         self.path = path
         return self.path
+
+    def get_artist(self):
+        return self.artist
+
+    def get_title(self):
+        return self.title
+
+    def get_albumname(self):
+        return self.albumname
+
+    def get_year(self):
+        return self.year
+
+    def get_genre(self):
+        return self.genre
+
+    def get_albumnumer(self):
+        return self.albumnumer
+
+    def get_path(self):
+        self.path
