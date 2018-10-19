@@ -57,4 +57,4 @@ class Rola(object):
         return self.albumnumer
 
     def get_path(self):
-        self.path
+        return self.path

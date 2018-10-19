@@ -64,6 +64,7 @@ class Miner():
 
             self.rolas.append(rola)
 
+            print(rola.get_path())
             print(rola.get_title())
             print(rola.get_artist())
             print(rola.get_albumname())

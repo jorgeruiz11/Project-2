@@ -11,6 +11,7 @@ class DAO():
     def create_database(self, rolas):
         #pathway = os.path.expanduser('~/.local')
         #route = pathway + '/' + 'rolas.db'
+        
         connection = sqlite3.connect('rolas.db')
         id_type = 2 #Comenzamos con 2 porque es el tipo por omisión.
         cur = connection.cursor()
@@ -31,7 +32,7 @@ class DAO():
             #if path_rola in obtain:
                 #pass
             cur.execute("INSERT INTO performers (id_type, name) VALUES (?,?)", (id_type, artist,))
-            #cur.execute("INSERT INTO groups (name) VALUES (?)", (rola.property_artist()))
+            cur.execute("INSERT INTO groups (name) VALUES (?)", (artist,))
             cur.execute("INSERT INTO albums (path, name, year) VALUES (?,?,?)", (path_rola, album_name, year,))
 
             cur.execute("SELECT id_performer FROM performers")
