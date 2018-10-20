@@ -7,11 +7,9 @@ class DAO():
     def __init__(self):
         self.rolas = []
 
-
     def create_database(self, rolas):
         #pathway = os.path.expanduser('~/.local')
         #route = pathway + '/' + 'rolas.db'
-        
         connection = sqlite3.connect('rolas.db')
         id_type = 2 #Comenzamos con 2 porque es el tipo por omisión.
         cur = connection.cursor()
