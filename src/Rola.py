@@ -1,5 +1,5 @@
 # Clase para manejar correctamente los atributos de las rolas.
-class Rola():
+class Rola(object):
 
     def __init__(self):
         self.artist = ""
@@ -10,37 +10,51 @@ class Rola():
         self.albumnumer = ""
         self.path = ""
 
-
-    def make_artist(self, artist):
+    def property_artist(self, artist):
         self.artist = artist
         return artist
 
-    def make_title(self, title):
+    def property_title(self, title):
         self.title = title
         return title
 
-    def make_albumname(self, albumname):
+    def property_albumname(self, albumname):
         self.albumname = albumname
         return albumname
 
-    def make_year(self, year):
+    def property_year(self, year):
         self.year = year
         return year
 
-
-    def make_genre(self, genre):
+    def property_genre(self, genre):
         self.genre = genre
         return genre
 
-
-    def make_albumnumer(self, albumnumer):
-        #if(albumnumer == None or albumnumer):
-        #    self.albumnumer = "Unknown"
-        #else:
+    def property_albumnumer(self, albumnumer):
         self.albumnumer = albumnumer
         return albumnumer
 
-
-    def make_path(self, path):
+    def property_path(self, path):
         self.path = path
+        return self.path
+
+    def get_artist(self):
+        return self.artist
+
+    def get_title(self):
+        return self.title
+
+    def get_albumname(self):
+        return self.albumname
+
+    def get_year(self):
+        return self.year
+
+    def get_genre(self):
+        return self.genre
+
+    def get_albumnumer(self):
+        return self.albumnumer
+
+    def get_path(self):
         return self.path
