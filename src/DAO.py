@@ -1,12 +1,21 @@
+# Importamos los paquetes necesarios.
 import os
 import sqlite3
 from mutagen.id3 import *
 
 class DAO():
 
+    # Método que se inicializa al arrancar el módulo creando la lista para las canciones.
     def __init__(self):
         self.rolas = []
 
+    ''' Manda a llamar a la base de datos y se conecta a ella con el nombre "rolas.db"
+     después estable el primer tipo, 2, ya que es el que se pide, luego creamos el
+     cursor y creamos un contador que iremos aumentando al terminal todo el proceso.
+
+     Primero, para cada rola en la lista de rolas obtenemos su path y después obtenemos
+     sus datos (artista, título, genero, albúm, etc..)
+    '''
     def create_database(self, rolas):
         #pathway = os.path.expanduser('~/.local')
         #route = pathway + '/' + 'rolas.db'
